@@ -12,13 +12,17 @@ struct MatiApp: App {
     @Environment(\.openWindow) var openWindow
 
     var body: some Scene {
-        MenuBarExtra("Mati") {
+        MenuBarExtra {
             Button("Settings...") {
                 openWindow(id: "settings")
             }.keyboardShortcut(",")
             Button("Quit") {
                 NSApplication.shared.terminate(nil)
             }.keyboardShortcut("q")
+        }  label: {
+            let config = NSImage.SymbolConfiguration(pointSize: 16, weight: .light)
+            let symbol = NSImage(systemSymbolName: "globe", accessibilityDescription: "Mati App Icon")
+            Image(nsImage: symbol!.withSymbolConfiguration(config)!)
         }
         
         Window("Settings", id: "settings") {
