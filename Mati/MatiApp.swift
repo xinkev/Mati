@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct MatiApp: App {
+    @Environment(\.openWindow) var openWindow
+
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        MenuBarExtra("Mati") {
+            Button("Settings...") {
+                openWindow(id: "settings")
+            }.keyboardShortcut(",")
+            Button("Quit") {
+                NSApplication.shared.terminate(nil)
+            }.keyboardShortcut("q")
+        }
+        
+        Window("Settings", id: "settings") {
+            SettingsView()
         }
     }
 }

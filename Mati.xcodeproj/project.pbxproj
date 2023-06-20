@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D7194DA2A41F4AC008574CD /* MatiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7194D92A41F4AC008574CD /* MatiApp.swift */; };
-		4D7194DC2A41F4AC008574CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7194DB2A41F4AC008574CD /* ContentView.swift */; };
+		4D7194DC2A41F4AC008574CD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7194DB2A41F4AC008574CD /* SettingsView.swift */; };
 		4D7194DE2A41F4AD008574CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7194DD2A41F4AD008574CD /* Assets.xcassets */; };
 		4D7194E12A41F4AD008574CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7194E02A41F4AD008574CD /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		4D7194D62A41F4AC008574CD /* Mati.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mati.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7194D92A41F4AC008574CD /* MatiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatiApp.swift; sourceTree = "<group>"; };
-		4D7194DB2A41F4AC008574CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4D7194DB2A41F4AC008574CD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4D7194DD2A41F4AD008574CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D7194E02A41F4AD008574CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D7194E22A41F4AD008574CD /* Mati.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mati.entitlements; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			children = (
 				4D7194E92A41F7FD008574CD /* Info.plist */,
 				4D7194D92A41F4AC008574CD /* MatiApp.swift */,
-				4D7194DB2A41F4AC008574CD /* ContentView.swift */,
+				4D7194DB2A41F4AC008574CD /* SettingsView.swift */,
 				4D7194DD2A41F4AD008574CD /* Assets.xcassets */,
 				4D7194E22A41F4AD008574CD /* Mati.entitlements */,
 				4D7194DF2A41F4AD008574CD /* Preview Content */,
@@ -141,7 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D7194DC2A41F4AC008574CD /* ContentView.swift in Sources */,
+				4D7194DC2A41F4AC008574CD /* SettingsView.swift in Sources */,
 				4D7194DA2A41F4AC008574CD /* MatiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
