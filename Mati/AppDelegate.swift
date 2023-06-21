@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func setupPopOver() {
         popover = NSPopover()
         popover.behavior = .transient
-        popover.contentViewController = NSHostingController(rootView: PopOverWindow())
+        popover.contentViewController = PopOverViewController(rootView: PopOverWindow())
     }
     
     func showSettings() {
@@ -58,7 +58,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let popoverSize = PopOverWindow.size
                 
                 popover.contentViewController?.view.frame = NSRect(origin: .zero, size: popoverSize)
-                popover.show(relativeTo: buttonRect, of: button, preferredEdge: .maxX)
+                popover.show(relativeTo: buttonRect, of: button, preferredEdge: .minY)
+                popover.becomeFirstResponder()
             }
         }
     }
