@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ServiceManagement
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     private var settingsWindow: NSWindow?
@@ -15,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         setupStatusItem()
         setupPopOver()
+        registerAsLoginItem()
     }
     
     private func setupStatusItem() {
@@ -47,6 +49,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         settingsWindow!.makeKeyAndOrderFront(nil)
         settingsWindow!.orderFrontRegardless()
+    }
+    
+    private func registerAsLoginItem() {
+        // register app to launch at startup
+        let service = SMAppService()
+        do {
+            try service.register()
+        } catch {
+            print(error)
+        }
     }
     
     @objc func handleStatusItemClick() {
