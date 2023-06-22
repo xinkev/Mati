@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @AppStorage("launchAtLogin") var isLaunchAtLoginOn = true
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            TabView {
+                Toggle("Launch at login", isOn: $isLaunchAtLoginOn)
+                    .tabItem {
+                        Label("General", systemImage: "gear")
+                    }
+            }.frame(width: 200, height: 200)
         }
-        .padding()
     }
 }
 

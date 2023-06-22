@@ -12,11 +12,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var settingsWindow: NSWindow?
     private var statusItem: NSStatusItem!
     private var popover: NSPopover!
+    private var observer: NSObjectProtocol?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         setupStatusItem()
         setupPopOver()
-        registerAsLoginItem()
+        
+        observer = NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: nil) { [unowned self] notif in
+            let shouldLaunchAtLogin = UserDefaults.standard.bool(forKey: "launchAtLogin")
+            self.toggleLaunchAtLogin(isOn: shouldLaunchAtLogin)
+        }
     }
     
     private func setupStatusItem() {
@@ -40,22 +45,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if settingsWindow == nil {
             settingsWindow = NSWindow(
                 contentRect: NSRect(x: 0, y: 0, width: 480, height: 270),
-                styleMask: [.miniaturizable, .closable, .resizable, .titled],
+                styleMask: [.closable, .titled],
                 backing: .buffered,
                 defer: false
             )
             settingsWindow!.center()
             settingsWindow!.title = "Mati Settings"
+            settingsWindow?.contentViewController = NSHostingController(rootView: SettingsView())
         }
         settingsWindow!.makeKeyAndOrderFront(nil)
         settingsWindow!.orderFrontRegardless()
     }
     
-    private func registerAsLoginItem() {
+    private func toggleLaunchAtLogin(isOn: Bool) {
         // register app to launch at startup
         let service = SMAppService()
         do {
-            try service.register()
+            if (isOn) {
+                try service.register()
+            } else {
+                try service.unregister()
+            }
         } catch {
             print(error)
         }
