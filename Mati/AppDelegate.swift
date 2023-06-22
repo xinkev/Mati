@@ -40,22 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.behavior = .transient
         popover.contentViewController = PopOverViewController(rootView: PopOverWindow())
     }
-    
-    func showSettings() {
-        if settingsWindow == nil {
-            settingsWindow = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: 480, height: 270),
-                styleMask: [.closable, .titled],
-                backing: .buffered,
-                defer: false
-            )
-            settingsWindow!.center()
-            settingsWindow!.title = "Mati Settings"
-            settingsWindow?.contentViewController = NSHostingController(rootView: SettingsView())
-        }
-        settingsWindow!.makeKeyAndOrderFront(nil)
-        settingsWindow!.orderFrontRegardless()
-    }
+
     
     private func toggleLaunchAtLogin(isOn: Bool) {
         // register app to launch at startup

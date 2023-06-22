@@ -13,8 +13,8 @@
 		4D7194EB2A421A13008574CD /* GTranslateWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7194EA2A421A13008574CD /* GTranslateWebView.swift */; };
 		4DA30BED2A433B06007E42D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA30BEC2A433B06007E42D6 /* AppDelegate.swift */; };
 		4DA30BEF2A433D62007E42D6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA30BEE2A433D62007E42D6 /* main.swift */; };
-		4DA30BF12A4344CA007E42D6 /* PopOverWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA30BF02A4344CA007E42D6 /* PopOverWindow.swift */; };
 		4DC8FB362A4360E600404022 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC8FB352A4360E600404022 /* PopOverViewController.swift */; };
+		4DF716A42A4486B200CE1C32 /* PopOverWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA30BF02A4344CA007E42D6 /* PopOverWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,10 +154,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DA30BED2A433B06007E42D6 /* AppDelegate.swift in Sources */,
+				4DF716A42A4486B200CE1C32 /* PopOverWindow.swift in Sources */,
 				4DA30BEF2A433D62007E42D6 /* main.swift in Sources */,
 				4DC8FB362A4360E600404022 /* PopOverViewController.swift in Sources */,
 				4D7194EB2A421A13008574CD /* GTranslateWebView.swift in Sources */,
-				4DA30BF12A4344CA007E42D6 /* PopOverWindow.swift in Sources */,
 				4D7194DC2A41F4AC008574CD /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

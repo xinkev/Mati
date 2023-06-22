@@ -9,43 +9,41 @@ import SwiftUI
 
 struct PopOverWindow: View {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var body: some View {
-        VStack {
-            HStack{
-                Spacer()
-                ButtonWithShortcutLabel(label: "Quit", shortcut: "⌘ Q") {
-                    NSApplication.shared.terminate(nil)
-                }.keyboardShortcut("q")
-                ButtonWithShortcutLabel(label: "Settings...", shortcut: "⌘ ,") {
-                    appDelegate.showSettings()
-                }.keyboardShortcut(",")
-            }.padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
-            GTranslateWebView().frame(width: PopOverWindow.size.width, height: PopOverWindow.size.height)
-        }
-    }
-}
-
-struct ButtonWithShortcutLabel: View {
-    var label: String
-    var shortcut: String
-    var action: () -> Void
+    @State private var selectedTab = 0
     
     var body: some View {
-        Button(action: action) {
+        VStack(spacing: 0) {
+            // Tab Bar
             HStack {
-                Text(label)
-                Text(shortcut)
-                    .font(Font.system(size: 12))
-                    .foregroundColor(.secondary)
+                Button(action: {
+                    NSApplication.shared.terminate(nil)
+                }) {
+                    Image(systemName: "power.circle")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                }
+                .keyboardShortcut("q")
+                .buttonStyle(.borderless)
+                
+                Spacer()
+                
+                
+                Picker("", selection: $selectedTab) {
+                    Text("Translator").tag(0).keyboardShortcut("t")
+                    Text("Settings").tag(1).keyboardShortcut(",")
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .fixedSize()
+            }.padding()
+            
+            // Content
+            if selectedTab == 0 {
+                GTranslateWebView()
+                    .frame(width: PopOverWindow.size.width, height: PopOverWindow.size.height)
+            } else {
+                SettingsView()
             }
         }
-    }
-}
-
-
-struct ButtonWithShortcutLabel_Previews: PreviewProvider {
-    static var previews: some View {
-        ButtonWithShortcutLabel(label: "Quit", shortcut: "⌘ Q", action: {})
     }
 }
 
